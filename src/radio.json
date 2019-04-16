@@ -1,0 +1,14 @@
+{
+  "nightcore": {
+    "name" : "Nightcore",
+    "url" : "https://www.radionomy.com/en/radio/nightcoreradiofm/listen/?autoplay=true"
+  },
+  "jpop": {
+    "name" : "JPop",
+    "url" : "https://tunein.com/radio/J-Pop-Sakura---asia-DREAM-radio-s280096/"
+  },
+  "kpop": {
+    "name" : "KPop",
+    "url" : "https://tunein.com/radio/Big-B-Radio---KPOP-s135096/"
+  }
+}

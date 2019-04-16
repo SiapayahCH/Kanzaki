@@ -1,0 +1,16 @@
+{
+  "bot_prefix": "k?",
+  "embed_color": "RANDOM",
+  "owners_id": [
+    "446941102315012097",
+    "470599691785207813"
+  ],
+  "coowners_id": [
+    "242969117479403520"
+  ],
+  "partners_id": [
+    "327586923252285440"
+  ],
+  "v": "Alpha Testing 0.0.1",
+  "footer": "Requested by: "
+}

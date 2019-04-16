@@ -1,0 +1,53 @@
+{
+  "name": "kanzaki",
+  "version": "beta 0.0.1",
+  "description": "Kanzaki Discord BOT",
+  "main": "index.js",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "test": "eslint --ignore-path .gitignore .",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodDevelopment/CodDev.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Discord.js"
+  ],
+  "author": "Tiramitzu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodDevelopment/CodDev/issues"
+  },
+  "homepage": "https://github.com/CodDevelopment/CodDev#readme",
+  "dependencies": {
+    "canvas": "^2.4.1",
+    "canvas-constructor": "^3.0.0",
+    "cheerio": "^0.22.0",
+    "cpu-stat": "^2.0.1",
+    "dblapi.js": "^2.3.0",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.2.2",
+    "node-superfetch": "^0.1.9",
+    "osunext-sig": "^1.0.1",
+    "parse-ms": "^2.0.0",
+    "quick.db": "^7.0.0-b19",
+    "simple-youtube-api": "^5.1.1",
+    "sqlite3": "^4.0.6",
+    "superagent": "^5.0.1",
+    "ytdl-core": "^0.29.0",
+    "node-opus": "^0.3.1",
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-strongloop": "^2.1.0"
+  }
+}
