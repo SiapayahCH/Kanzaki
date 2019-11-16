@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { YTAPI} = process.env;
+const YTAPI = process.env.YTAPI;
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(YTAPI);
 

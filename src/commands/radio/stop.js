@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
       
         //if (!client.commands.get("jpop", "kpop").run(bot, message, args)) return;
 
-        if (queue) return;
+        if (queue) return msg.channel.send('This is only for radio commands not music commands.');
       
         message.channel.send('Leaving Channels ...').then(async msg => {
                         setTimeout(() => {

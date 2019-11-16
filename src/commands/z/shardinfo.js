@@ -19,7 +19,8 @@ var x = await client.shard.broadcastEval('`Shard: [${this.shard.id+1} / ${this.s
 } 
 
 exports.conf = {
-  aliases: ["shardinfo"]
+  aliases: ["shardinfo"],
+  ownerOnly: true
 }
 
 exports.help = {

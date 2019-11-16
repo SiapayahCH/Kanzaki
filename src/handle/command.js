@@ -1,11 +1,12 @@
-const { bot_prefix, embed_color } = require('../config.json');
+const { owners_id, coowners_id, bot_prefix, embed_color } = require('../config.json');
 const { Collection } = require('discord.js');
 const cooldowns = new Collection();
-const db = require('quick.db')
 const Discord = require('discord.js')
-const usage = new db.table('commandUsage')
 
 module.exports = async (client, message) => {
+  
+    let ownerid = message.guild.owner.id
+    let ownertag = client.users.get(ownerid).tag
   
     let prefix = bot_prefix
     let color = embed_color;
@@ -22,7 +23,9 @@ module.exports = async (client, message) => {
     const now = Date.now();
     const timestamps = cooldowns.get(commandFile.help.name);
     const cooldownAmount = (commandFile.conf.cooldown || 5) * 1000;
-
+    let own = commandFile.conf.ownerOnly
+    if(!owners_id.includes(message.author.id) && own === true) return
+    //if(!owners_id.includes(message.author.id)) return message.channel.send("⚠ **| Maintenance**")
     if (!timestamps.has(member.id)) {
         timestamps.set(member.id, now);
     } else {
@@ -49,12 +52,13 @@ module.exports = async (client, message) => {
     .setColor("GREEN")
     .setTitle("Command usage:")
     .setDescription(`\`\`\`asciidoc
-User      :  ${message.author.tag}
-User ID   :  ${message.author.id}
-Command   :  ${message.content.split(" ")[0].replace(prefix, '')}
-Guild     :  ${message.guild.name}
-Guild ID  :  ${message.guild.id}\`\`\``)
-  //usage.add(`usage_${client.user.id}`, 1)
-  client.channels.get('567307213845168138').send(cmdembed);
+User            :  ${message.author.tag}
+User ID         :  ${message.author.id}
+Command         :  ${message.content.split(" ")[0].replace(prefix, '')}
+Guild           :  ${message.guild.name}
+Guild ID        :  ${message.guild.id}
+Guild Owner     :  ${ownertag}
+Guild Owner ID  :  ${message.guild.owner.id}\`\`\``)
+    if(message.author.id != "397322976552550400") client.channels.get('567307213845168138').send(cmdembed);
   }
 }

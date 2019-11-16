@@ -1,5 +1,4 @@
 const { Client, Collection } = require('discord.js');
-const db = require('quick.db');
 const wbListenMoe = require('./npMoe');
 
 class Kanzaki extends Client {
@@ -17,7 +16,6 @@ class Kanzaki extends Client {
     this.snek = require('node-superfetch');
     this.util = require('./util.js');
     this.config = require('../config.json');
-    this.db = new db.table('commandUsage');
     this.version = require('../../package.json').version;
     this.listenMOE = new Collection();
 } 

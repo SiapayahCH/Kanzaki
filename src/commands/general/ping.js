@@ -15,11 +15,11 @@ exports.run = async (client, message, args, color) => {
         .addField("💻 API", `\`${API}ms\``, true)
         .setFooter(`${footer} ${message.author.tag}`)
         .setTimestamp();
-        return message.channel.send("***Please wait...***").then(async msg => {
+        return message.channel.send(embed)/*"***Please wait...***").then(async msg => {
                         setTimeout(() => {
                             msg.edit(embed);
                         }, 1500);
-        });
+        });*/
     };
 
 exports.conf = {

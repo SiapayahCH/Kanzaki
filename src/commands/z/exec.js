@@ -17,7 +17,8 @@ async function execute (client, msg, args){
 
 this.conf = {
 	aliases: ['exec', '💲'],
-	cooldown: 10
+	cooldown: 10,
+  ownerOnly: true
 }
 
 this.help = {

@@ -8,7 +8,7 @@ exports.run = async (bot, message, args) => {
   let arg = args[0]
   if(!arg) arg = message.author.username
   let role = new RegExp(arg, "gi");
-  let user = bot.users.array().find(r => r.username.match(role))
+  let pepel = bot.users.array().find(r => r.username.match(role))
   
   if(`${args[0]}` === `server` || `${args[0]}` === `guild`) {
     let sicon = message.guild.iconURL;
@@ -27,6 +27,7 @@ exports.run = async (bot, message, args) => {
     return;
   }
 
+    let user = pepel || message.mentions.members.first() || message.guild.members.get(args[0])
     if(!user) user = message.author
 
     let embed = new Discord.RichEmbed()

@@ -26,6 +26,7 @@ module.exports.run = async (bot, message, args) => {
   let guild = bot.guilds.get(args[1]);
   if(!guild) guild = message.guild
   let guild1 = bot.guilds.get(args[0]);
+  if(!guild1) guild1 = message.guild
   
   
   if(`${args[0]}` === `info`) {

@@ -8,7 +8,7 @@ async function playCommand(client, msg, args){
 	try{
 		if(!GOOGLE_API_KEY) throw TypeError('NO GOOGLE KEY IN ENV >:(');
 		const youtube = new YouTube(GOOGLE_API_KEY);
-		
+    
 		const vc = msg.member.voiceChannel;
 		if(!vc) return msg.channel.send('😡 | Join vc first');
 		if(!vc.permissionsFor(client.user).has(['CONNECT', 'SPEAK'])) return msg.channel.send('🚫 | Missing perm **CONNECT** or **SPEAK**');
@@ -46,18 +46,17 @@ async function handleVideo (video, msg, voiceChannel, hide = false){
 		durations: video.duration.seconds,
     duration: video.duration,
     desc: video.description,
-		author: msg.author,
-		video
+		author: msg.author
 	}
 	if(!queue){
 		try{
-			msg.channel.send(`If you like our bot, dont forget to give upvote on DBL!\nLink: https://discordbots.org/bot/518697409849720832/vote`);
+			msg.channel.send(`If you like our bot, dont forget to give upvote on DBL!\nLink: SOON`);
 			const connection = await voiceChannel.join();
 			const Queue = {
 				channel: msg.channel,
 				voiceChannel,
 				connection,
-				songs: [song],
+				songs: [],
 				volume: 50,
 				playing: true,
 				loop: false
@@ -86,7 +85,7 @@ function play(msg, song){
 		queue.voiceChannel.leave();
 		return msg.client.queue.delete(msg.guild.id);
 	}
-	const vid = ytdl(song.url, {filter: 'audioonly' }, {quality: 'small'});
+	const vid = ytdl(song.url);
 	const dispatcher = queue.connection.playStream(vid)
 	.on('end', res => {
 		const shifed = queue.songs.shift();
@@ -110,7 +109,7 @@ this.conf = {
 
 this.help = {
 	name: 'forceplay',
-	description: 'play song using youtube videos',
+	description: 'Play song using youtube videos',
 	usage: 'forceplay <query | link | playlist>'
 }
 

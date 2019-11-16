@@ -5,11 +5,11 @@ const dbl = new DBL(process.env.DBL_TOKEN, client);
 
 exports.run = async (client, message, args) => {
   
-  let prefix = '!kn.'
+  let prefix = 'k?'
   
   let aembed = new Discord.RichEmbed()
   .setColor("BLUE")
-  .setAuthor("Correct usage is:")
+  .setAuthor("Correct usage:")
   .setDescription(`\`\`\`asciidoc
 ${prefix}dbl info <@mention | ID>      :    Full info about the bot on DBL.
 
@@ -24,7 +24,7 @@ ${prefix}dbl upvotes <@mention | ID>   :    Widget bot total upvotes (small).
 ${prefix}dbl servers <@mention | ID>   :    Widget bot total servers (small).
 
 ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``)
-  .addField("**Note:**", "***Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org/) and yeah ONLY BOT NOT HUMAN!!***")
+  .addField("**Note:**", "***Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org/) and ONLY BOT NOT HUMAN!!***")
   
   if(!args[0] || `${args[0]}` === `help`) {
     return message.channel.send(aembed)  
@@ -34,7 +34,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
     
   if(`${args[0]}` === `info`) {
     
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
       
     dbl.getBot(user.id).then(bot => {
@@ -53,7 +53,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `owner`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/owner/${user.id}.png`;
     
@@ -67,7 +67,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `widget`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/${user.id}.png`;
     
@@ -81,7 +81,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `lib`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/lib/${user.id}.png`;
     
@@ -95,7 +95,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `servers`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/servers/${user.id}.png`;
     
@@ -109,7 +109,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `status`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/status/${user.id}.png`;
     
@@ -123,7 +123,7 @@ ${prefix}dbl lib <@mention | ID>       :    Widget bot libraries (small).\`\`\``
   }
   
   if(`${args[0]}` === `upvotes`) {
-    let user = message.mentions.users.first() || client.users.get(args[0]);
+    let user = message.mentions.users.first() || client.users.get(args[1]);
     if(!user) return message.channel.send('Please mention bot')
     if (user) user = `https://discordbots.org/api/widget/upvotes/${user.id}.png`;
     

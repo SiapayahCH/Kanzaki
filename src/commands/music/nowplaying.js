@@ -63,7 +63,7 @@ exports.run = async (client, msg, args) => {
         volval = `──────────────────○─ ⠀`
     }
     if (serverQueue.volume == 100) {
-        volval = `──────────────────○ ⠀`
+        volval = `───────────────────○ ⠀`
     }
   
 	try{

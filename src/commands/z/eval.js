@@ -3,9 +3,7 @@ const { RichEmbed } = require("discord.js");
 const { post } = require('node-superfetch');
 const path = require("path");
 const SQL = require("sqlite3").verbose();
-let db = require('quick.db')
-var coins = new db.table('kiracoins')
-var redeemed = new db.table('redeemed')
+let Discord = require("discord.js")
 const ytdl = require('ytdl-core');
 //let xp = require("../../Storage/userData.json");
 
@@ -81,7 +79,8 @@ function clean(text) {
 
 exports.conf = {
   aliases: ["ev", "e"],
-  cooldowns: '0'
+  cooldowns: '0',
+  ownerOnly: true
 } //k
 
 exports.help = {

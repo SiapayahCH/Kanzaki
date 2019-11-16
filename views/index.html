@@ -1,0 +1,179 @@
+<html lang="en" class="theme-light">
+  <head>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kanzaki" />
+    <meta property="og:title" content="Kanzaki - Kanzaki Kaori Discord Bot" />
+    <meta
+      property="og:description"
+      content="Kanzaki Kaori, one of Discord Bot created by Tiramitzu#2853"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/df2cafb6-d5f4-4938-893f-7dfc3456a353%2F157354249857455600.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@DTiramitzu" />
+    <meta name="twitter:creator" content="@DTiramitzu" />
+    <link
+      rel="icon"
+      href="https://cdn.discordapp.com/attachments/566896115434389514/632796331089461280/Kanzaki-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <title>Kanzaki - Discord Bot</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="MrSheldon" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="text/JavaScript">
+      function setTheme(themeName) {
+        localStorage.setItem("theme", themeName);
+        document.documentElement.className = themeName;
+      }
+
+      function toggleTheme() {
+        if (localStorage.getItem("theme") === "theme-dark") {
+        setTheme("theme-light");
+        } else {
+          setTheme("theme-dark");
+        }
+      }
+
+      (function() {
+        if (localStorage.getItem("theme") === "theme-dark") {
+          setTheme("theme-dark");
+          document.getElementById("slider").checked = false;
+        } else {
+          setTheme("theme-light");
+          document.getElementById("slider").checked = true;
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <body oncontextmenu="return false;">
+      <ul>
+        <a href="/"
+          ><img
+            width="60"
+            height="65"
+            class="animated rotateIn"
+            src="https://cdn.discordapp.com/attachments/566896115434389514/632796331089461280/Kanzaki-removebg-preview.png"
+        /></a>
+        <li>
+          <a
+            >Dark/Light Theme
+            <label id="switch" class="switch">
+              <input type="checkbox" onchange="toggleTheme()" id="slider" />
+              <span class="slider round"></span>
+            </label>
+          </a>
+        </li>
+      </ul>
+
+      <br />
+      <div class="flex-item">
+        <div>
+          <img
+            src="https://cdn.glitch.com/df2cafb6-d5f4-4938-893f-7dfc3456a353%2Fezgif-1-d6f0646d6621.gif?v=1573545153320"
+            alt=""
+            width="600"
+            height="487"
+            style="float: right;"
+          />
+          <h1 class="ariel" style="font-size:60px;">
+            <span>Kanzaki Kaori</span>
+          </h1>
+          <div class="ariel" style="font-size:40px;">
+            <span>
+              Kanzaki Kaori is one of discord bots with High Quality music</span
+            >
+          </div>
+          <br />
+          <p>
+            <button class="glow-on-hover">
+              <a href="https://bit.ly/KBInvite">Invite</a>
+            </button>
+            <button class="glow-on-hover">
+              <a href="https://bit.ly/KServer">Support</a>
+            </button>
+            <button class="glow-on-hover">
+              <a href="https://top.gg/bot/518697409849720832/vote"
+                >Vote on DBL</a
+              >
+            </button>
+          </p>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <img
+            src="https://cdn.glitch.com/df2cafb6-d5f4-4938-893f-7dfc3456a353%2FCapture.PNG?v=1573547967083"
+            alt=""
+            style="float: left;"
+          />
+          <h1 class="ariel" style="font-size:40px;">
+            <span>Music Command</span>
+          </h1>
+          <div class="ariel" style="font-size:30px;">
+            <span>There's 2 way to play music:</span>
+            <br />
+            <span>1. Use k?play (Selecting first)</span>
+            <br />
+            <span>2. Use k?fp (Not selecting)</span>
+            <br />
+            <span>k?fp is aliases of k?forceplay</span>
+            <br />
+            <br />
+            <span style="font-size:35px;"
+              >For some reason the music queue can't load.</span
+            >
+          </div>
+        </div>
+      </div>
+      <h2>The Stats</h2>
+      <section class="flex_items">
+        <article id="trigger_dark_theme">
+          <h2>SERVER COUNT</h2>
+          <h10></h10>
+        </article>
+
+        <article>
+          <h2>USER COUNT</h2>
+          <h10></h10>
+        </article>
+
+        <article>
+          <h2>COMMANDS</h2>
+          <h10>28</h10>
+        </article>
+
+        <article>
+          <h2>PREFIXES</h2>
+          <h10>k?</h10>
+        </article>
+      </section>
+    </body>
+    <footer>
+      <div class="copyright">
+        <h5>&copy 2019 - Tiramitzu Dev | Kanzaki Kaori</h5>
+      </div>
+      <div class="social">
+        <a href="https://gmail.com" class="support">yeonickyc@gmail.com</a>
+        <a href="https://www.facebook.com/TiramitzuDev" class="face">f</a>
+        <a href="https://twitter.com/DTiramitzu" class="tweet">t</a>
+        <a href="https://bit.ly/KServer" class="discord">Discord</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -6,10 +6,15 @@ const { Canvas } = require('canvas-constructor');
 const moment = require('moment');
 require('moment-duration-format');
 const v = require('../../config.json').v
-const db = require('quick.db')
-const usage = new db.table('commandUsage')
+const client = new Discord.Client();
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_TOKEN, client);
 
 exports.run = async (client, message, args, color, prefix) => {
+  
+    let start = Date.now();
+    let diff = (Date.now() - message.createdTimestamp);
+    let API = (client.ping).toFixed(2)
   
     let botGuilds = client.guilds.size
     let botChannels = client.guilds.reduce((c, d) => c + d.channels.size, 0).toLocaleString()
@@ -20,6 +25,8 @@ exports.run = async (client, message, args, color, prefix) => {
       return console.log(err);
     }
       
+    dbl.getBot(client.user.id).then(bot => {
+      
       const embed = new Discord.RichEmbed()
 		.setColor(color)
 		.setThumbnail(client.user.displayAvatarURL)
@@ -29,8 +36,7 @@ Uptime         : ${client.util.parseDur(client.uptime)}
 Users          : ${botUsers}
 Channels       : ${botChannels}
 Servers        : ${botGuilds}
-Queue          : ${client.queue.size}
-Commands ran   : ${usage.get(`usage_${client.user.id}`)}\`\`\``)
+Queue          : ${client.queue.size} \`\`\``)
       .addField("System Usage Statistic", `\`\`\`asciidoc
 CPU Usage      : ${percent.toFixed(2)} %
 Memory Usage   : ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB\`\`\``)
@@ -41,9 +47,15 @@ Version Bot    : v${v}
 CPU            : ${os.cpus().map(i => `${i.model}`)[0]}
 Arch           : ${os.arch()}
 Platform       : ${os.platform()}\`\`\``)
-  .addField('📌 Owners', `• ${client.config.owners_id.map(x => `${client.users.get(x).username}#${client.users.get(x).discriminator}`).join('\n• ')}`) 
+      .addField("DBL Info", `\`\`\`asciidoc
+Votes This Month: ${bot.monthlyPoints}
+Total Votes     : ${bot.points}
+Bot Lib         : ${bot.lib}\`\`\``)
+  .addField('📌 Creators', `• ${client.config.owners_id.map(x => `${client.users.get(x).username}#${client.users.get(x).discriminator}`).join('\n• ')}`) 
+  .addField('📌 Co-Creators | Helpers', `• ${client.config.coowners_id.map(x => `${client.users.get(x).username}#${client.users.get(x).discriminator}`).join('\n• ')}`) 
   .addField('📌 Partners', `• ${client.config.partners_id.map(x => `${client.users.get(x).username}#${client.users.get(x).discriminator}`).join('\n• ')}`)
-	.addField('📌 Dependencies', Object.entries(dependencies).map(x => parseDependencies(x[0], x[1])).join(', '));
+	//.addField('📌 Dependencies', Object.entries(dependencies).map(x => parseDependencies(x[0], x[1])).join(', '))
+  .setFooter('Latency: '+diff+' | API: '+API);
 	if(args[0] === '--memory' || args[0] === '--mem' || args[0] === '--m'){
 			const attachment = getChart(client.health);
 			embed.attachFile({ attachment, name: 'memory.png' })
@@ -51,6 +63,7 @@ Platform       : ${os.platform()}\`\`\``)
 		}
      return message.channel.send(embed) 
   })  
+    })
 }
 function parseDependencies (name, src){
 	if(src.startsWith('github:')){
@@ -135,7 +148,7 @@ function renderData(arr, color, text, sec){
 }
 
 exports.conf = {
-  aliases: ['botinfo', 'about'], 
+  aliases: ['botinfo', 'about', 'st', 'stat'], 
   cooldown: '5'
 } 
 exports.help = {
